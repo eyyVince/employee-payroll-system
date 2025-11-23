@@ -1,0 +1,78 @@
+<?php
+session_start();
+
+$host = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "user_data";
+
+$con = mysqli_connect($host, $username, $password, $dbname);
+
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+    $result = mysqli_query($con, $sql);
+
+    if ($result && mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+
+        if ($password === $row['password']) {
+            $_SESSION['username'] = $username;
+
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            echo "<p style='color:red;'>Invalid password!</p>";
+        }
+    } else {
+        echo "<p style='color:red;'>User not found!</p>";
+    }
+}
+?>
+
+
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <title>Login and Registration</title>
+   </head>
+   <body>
+      <div class="login">
+         <img src="assets/img/login-bg.png" alt="image" class="login__bg">
+
+         <form action="index.php" method="POST" class="login__form">
+            <h1 class="login__title">Login</h1>
+
+            <div class="login__inputs">
+            <div class="login__box">
+            <input type="text" name="username" placeholder="Username" required class="login__input">
+            <i class="ri-mail-fill"></i>
+            </div>
+
+            <div class="login__box">
+            <input type="password" name="password" placeholder="Password" required class="login__input">
+            <i class="ri-lock-2-fill"></i>
+            </div>
+            </div>
+
+            <button type="submit" name="login" class="login__button">Login</button>
+
+            <div class="login__register">
+               Don't have an account? <a href="registerForm.php">Register</a>
+            </div>
+            </form>
+
+      </div>
+   </body>
+</html>
