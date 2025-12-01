@@ -1,22 +1,14 @@
-/*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
 :root {
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --white-color: hsl(0, 0%, 100%);
   --black-color: hsl(0, 0%, 0%);
-
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --h1-font-size: 2rem;
   --normal-font-size: 1rem;
   --small-font-size: .813rem;
 }
 
-/*=============== BASE ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -40,7 +32,6 @@ img {
   height: auto;
 }
 
-/*=============== LOGIN ===============*/
 .register {
   position: relative;
   height: 100vh;
@@ -167,8 +158,26 @@ img {
   text-decoration: underline;
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For medium devices */
+.alert {
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin: 15px auto;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    animation: fadeIn .4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
 @media screen and (min-width: 576px) {
   .reg {
     justify-content: center;

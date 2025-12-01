@@ -167,8 +167,45 @@ img {
   text-decoration: underline;
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For medium devices */
+.alert {
+    width: 95%;
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    animation: fadeIn .4s ease;
+}
+
+.alert.success {
+    background: #4CAF50;
+    color: white;
+}
+
+.login__forgot-container {
+    display: flex;
+    justify-content: flex-end; /* Moves it to the right */
+    margin-bottom: 1rem;
+}
+
+.login__forgot {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.login__forgot:hover {
+    text-decoration: underline;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
 @media screen and (min-width: 576px) {
   .login {
     justify-content: center;
