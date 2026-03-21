@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-$host = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "user_data";
+$host = "sql303.infinityfree.com";
+$dbUser = "if0_41444637";
+$dbPass = "";
+$dbName = "if0_41444637_user_data";
 
-$con = mysqli_connect($host, $username, $password, $dbname);
+$con = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }

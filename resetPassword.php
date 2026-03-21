@@ -11,10 +11,10 @@ if (!isset($_SESSION['reset_username'])) {
 
 $username = $_SESSION['reset_username'];
 
-$host = "127.0.0.1";
-$dbUser = "root";
+$host = "sql303.infinityfree.com";
+$dbUser = "if0_41444637";
 $dbPass = "";
-$dbName = "user_data";
+$dbName = "if0_41444637_user_data";
 
 $con = mysqli_connect($host, $dbUser, $dbPass, $dbName);
 if (!$con) {
