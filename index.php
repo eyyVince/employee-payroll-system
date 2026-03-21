@@ -93,11 +93,36 @@ if (isset($_POST['login'])) {
 
       <button type="submit" name="login" class="login__button">Login</button>
 
-      <div class="login__register">
+      <div class="page-transition">
+      <div class="container form-container">
+        <form>
+        <div class="login__register">
         Don't have an account? <a href="registerForm.php">Register</a>
+        </div>
+        </form>
       </div>
-    </form>
   </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("page-fade");
+  });
+
+  document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (!href.startsWith("#")) { 
+              e.preventDefault(); 
+              document.body.classList.add("fade-out");
+
+              setTimeout(() => {
+                  window.location = href;
+              }, 300);
+          }
+      });
+  });
+  </script>
+
 
   <?php if (!empty($message)): ?>
     <script>

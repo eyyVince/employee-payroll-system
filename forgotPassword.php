@@ -15,7 +15,6 @@ $message = "";
 
 if (isset($_POST['check_username'])) {
 
-    // The input is actually username
     $username = trim($_POST['username']);
 
     $stmt = mysqli_prepare($con, "SELECT id FROM users WHERE username = ? LIMIT 1");
@@ -29,7 +28,6 @@ if (isset($_POST['check_username'])) {
 
     if ($res && mysqli_num_rows($res) === 1) {
 
-        // Store username for reset page
         $_SESSION['reset_username'] = $username;
 
         echo "

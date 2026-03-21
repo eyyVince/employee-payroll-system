@@ -153,9 +153,33 @@ mysqli_close($con);
             
             <button type="submit" name="submit" class="reg__button">Register</button>
 
+            <div class="page-transition">
+            <div class="container form-container">
+            <form>
             <div class="register__login">Already have an account? <a href="index.php">Login</a>
             </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document.body.classList.add("page-fade");
+            });
+
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    const href = this.getAttribute("href");
+                    if (!href.startsWith("#")) { 
+                        e.preventDefault(); 
+                        document.body.classList.add("fade-out");
+
+                        setTimeout(() => {
+                            window.location = href;
+                        }, 300);
+                    }
+                });
+            });
+</script>
+
          </form>
       </div>
+    </div>
    </body>
 </html>

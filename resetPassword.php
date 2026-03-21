@@ -4,7 +4,6 @@ error_reporting(E_ALL);
 
 session_start();
 
-// Prevent direct access
 if (!isset($_SESSION['reset_username'])) {
     header("Location: forgotPassword.php");
     exit();
@@ -12,7 +11,6 @@ if (!isset($_SESSION['reset_username'])) {
 
 $username = $_SESSION['reset_username'];
 
-// DB connection
 $host = "127.0.0.1";
 $dbUser = "root";
 $dbPass = "";
@@ -25,7 +23,6 @@ if (!$con) {
 
 $message = "";
 
-// PROCESS PASSWORD UPDATE
 if (isset($_POST['update_password'])) {
 
     $new_pass = trim($_POST['password']);
@@ -34,7 +31,6 @@ if (isset($_POST['update_password'])) {
         $message = "Password cannot be empty.";
     } else {
 
-        // ❌ STORES PASSWORD AS PLAIN TEXT (NO HASHING)
         $stmt = mysqli_prepare($con, "UPDATE users SET password = ? WHERE username = ?");
         
         if (!$stmt) {
