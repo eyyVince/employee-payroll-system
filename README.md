@@ -32,12 +32,13 @@ User opens the system and interacts with:
 Login form (username/password)
 Employee forms (add/edit employee)
 Payroll inputs (salary, deductions)
+
 Step 2: Authentication Process
 Credentials are validated against the users table
 If invalid → Login Failure
 If valid → Login Success → Dashboard
-Step 3: System Navigation
 
+Step 3: System Navigation
 After login, the user can access:
 
 Employee Management
@@ -45,16 +46,19 @@ Add Employee
 Edit Employee
 Delete Employee
 Payroll Processing
+
 Step 4: Payroll Processing Flow
 Input salary details
 System performs:
 Deduction calculations
 Net pay computation
 Data is stored in the payroll table
+
 Step 5: Data Storage & Retrieval
 Employee and payroll data are:
 Saved in the database
 Retrieved when needed (e.g., dashboard, payroll records)
+
 Step 6: Output
 Display results:
 Payroll records
