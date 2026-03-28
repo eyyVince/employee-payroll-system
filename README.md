@@ -65,4 +65,5 @@ Payroll records
 Employee list
 Dashboard summaries
 
+For the demo, you can download my repo and using XAMPP just import the files users.sql and employee_data.sql and configure it to your own projects
 To all visitors for this project, you can visit my work thru this website # eyyvince.42web.io (InfinityFree.com) and it still in development
